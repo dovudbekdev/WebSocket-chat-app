@@ -1,0 +1,27 @@
+name: Deploy
+
+on:
+  workflow_dispatch:
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: SSH kalitni sozlash
+              run: |
+                mkdir -p ~/.ssh
+                echo "${{secrets.SSH_PRIVATE_KEY}}" > ~/.ssh/id_rsa
+                chmod 600 ~/.ssh/id_rsa
+                ssh-keyscan -H ${{vars.HOST}} >> ~/.ssh/known_hosts
+            
+            - name: Serverga loyiha o'zgarishlarini qo'shish
+              run: |
+                ssh ${{vars.USER}}@${{vars.HOST}}
+                cd Loyihalar/WebSocket-chat-app
+                git clone https://github.com/dovudbekdev/WebSocket-chat-app.git
+                npm install
+            
+            - name: PM2 orqali serverni restart qilish
+              run: |
+                ssh ${{vars.USER}}@${{vars.HOST}}
+                pm2 restart Chat
