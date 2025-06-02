@@ -28,6 +28,7 @@ jobs:
                   mkdir Loyihalar1
                   cd Loyihalar1
                   git clone https://github.com/dovudbekdev/WebSocket-chat-app.git
+                  cd WebSocket-chat-app
                   cp .env.example .env
                   echo ".env faylda nusxa olindi"
                   sed -i 's/^PORT=.*/PORT=4000' .env
