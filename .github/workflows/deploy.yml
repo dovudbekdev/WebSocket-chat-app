@@ -21,9 +21,8 @@ jobs:
                 ssh ${{vars.USER}}@${{vars.HOST}} "
                 cd Loyihalar/WebSocket-chat-app
                 git clone https://github.com/dovudbekdev/WebSocket-chat-app.git
-                npm install
-                "
-                
+                npm install"
+
             - name: PM2 orqali serverni restart qilish
               run: |
                 ssh ${{vars.USER}}@${{vars.HOST}} "pm2 restart Chat"
