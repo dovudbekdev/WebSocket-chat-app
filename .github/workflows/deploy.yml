@@ -23,6 +23,7 @@ jobs:
                 cd Loyihalar/WebSocket-chat-app
                 git clone https://github.com/dovudbekdev/WebSocket-chat-app.git
                 npm install"
+              shell: bash
 
             - name: PM2 orqali serverni restart qilish
               run: |
