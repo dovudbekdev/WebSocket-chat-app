@@ -21,7 +21,7 @@ jobs:
               run: |
                 ssh ${{vars.USER}}@${{vars.HOST}} "
                 cd Loyihalar/WebSocket-chat-app
-                git clone pull origin main
+                git pull origin main
                 npm install"
               shell: bash
 
