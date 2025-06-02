@@ -25,5 +25,4 @@ jobs:
             
             - name: PM2 orqali serverni restart qilish
               run: |
-                ssh ${{vars.USER}}@${{vars.HOST}}
-                pm2 restart Chat
+                ssh ${{vars.USER}}@${{vars.HOST}} "pm2 restart Chat"
