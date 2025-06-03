@@ -29,6 +29,7 @@ jobs:
                   cd Loyihalar
                   git clone https://github.com/dovudbekdev/WebSocket-chat-app.git
                   cd WebSocket-chat-app
+                  npm install
                   cp .env.example .env
                   echo "======== .env fayl tarkibi ========="
                   cat .env
