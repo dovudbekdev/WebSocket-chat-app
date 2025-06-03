@@ -18,7 +18,7 @@ jobs:
             
             - name: Serverga loyiha o'zgarishlarini qo'shish
               run: |
-                ssh ${{vars.USER}}@${{vars.HOST}} << EOF
+                ssh ${{vars.USER}}@${{vars.HOST}} << 'EOF'
                 if [ -d Loyihalar ]; then
                   cd Loyihalar/WebSocket-chat-app
                   git pull origin main
@@ -43,4 +43,11 @@ jobs:
 
             - name: PM2 orqali serverni restart qilish
               run: |
-                ssh ${{vars.USER}}@${{vars.HOST}} "pm2 restart Chat || cd ~/Loyihalar/WebSocket-chat-app && pm2 start server.js --name Chat"
+                ssh ${{vars.USER}}@${{vars.HOST}} << 'EOF'
+                if [ pm2 list | grep -q Chat ]; then
+                  pm2 restart Chat
+                else
+                  cd ~/Loyihalar/WebSocket-chat-app
+                  pm2 start server.js --name Chat
+                fi
+                EOF
