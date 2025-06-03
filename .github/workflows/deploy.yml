@@ -44,7 +44,7 @@ jobs:
             - name: PM2 orqali serverni restart qilish
               run: |
                 ssh ${{vars.USER}}@${{vars.HOST}} << 'EOF'
-                if [ pm2 list | grep -q Chat ]; then
+                if pm2 list | grep -q Chat; then
                   pm2 restart Chat
                 else
                   cd ~/Loyihalar/WebSocket-chat-app
