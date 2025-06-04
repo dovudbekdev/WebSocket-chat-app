@@ -8,6 +8,7 @@
 	--error-color: #d9534f;
 }
 
+
 * {
 	box-sizing: border-box;
 	margin: 0;
@@ -20,6 +21,11 @@ body {
 	background: var(--light-color);
 	margin: 20px;
 }
+
+body{
+	background-color: black;
+}
+
 
 ul {
 	list-style: none;
