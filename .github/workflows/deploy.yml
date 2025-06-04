@@ -23,7 +23,7 @@ jobs:
 
         - name: Yangilanishlarni qo'shish
           run: | 
-            ssh ${{vars.USER}}@${{vars.HOST}} << 'EOF'
+            ssh root@185.191.141.96 << 'EOF'
             cd Loyihalar/WebSocket-chat-app
             git pull origin main
             npm ci
